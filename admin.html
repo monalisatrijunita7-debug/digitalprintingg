@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Admin - Pratama Printing</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <div id="loginBox" class="login-box">
+    <h2>Login Admin</h2>
+    <input id="user" placeholder="Username">
+    <input id="pass" type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p id="error" style="color:red"></p>
+  </div>
+
+  <div id="dashboard" style="display:none">
+    <h2>Dashboard Admin</h2>
+    <button onclick="logout()">Logout</button>
+
+    <h3>Tambah Jenis Bahan</h3>
+    <input id="namaBahan" placeholder="Nama Bahan">
+    <textarea id="deskBahan" placeholder="Deskripsi Bahan"></textarea>
+    <button onclick="tambahBahan()">Simpan Bahan</button>
+
+    <h3>Tambah Ukuran & Harga</h3>
+    <select id="pilihBahan"></select>
+    <input id="ukuran" placeholder="Contoh: 2 x 3 meter">
+    <input id="harga" type="number" placeholder="Harga">
+    <button onclick="tambahUkuran()">Simpan Ukuran</button>
+
+    <h3>Data Bahan</h3>
+    <div id="tabelBahan"></div>
+  </div>
+</div>
+
+<script>
+const data = JSON.parse(localStorage.getItem('pratamaData'));
+
+function login(){
+  const u = document.getElementById('user').value;
+  const p = document.getElementById('pass').value;
+  if(u === data.admin.username && p === data.admin.password){
+    document.getElementById('loginBox').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    loadDashboard();
+  } else {
+    document.getElementById('error').innerText = 'Username atau password salah';
+  }
+}
+
+function logout(){
+  document.getElementById('loginBox').style.display = 'block';
+  document.getElementById('dashboard').style.display = 'none';
+}
+
+function loadDashboard(){
+  // Isi dropdown bahan
+  document.getElementById('pilihBahan').innerHTML = data.jenis_bahan.map(b => 
+    `<option value="${b.id}">${b.nama}</option>`
+  ).join('');
+  
+  // Tampilkan tabel
+  document.getElementById('tabelBahan').innerHTML = data.jenis_bahan.map(b => `
+    <div class="bahan-box">
+      <h4>${b.nama}</h4>
+      <p>${b.desk}</p>
+      <ul>
+        ${data.ukuran_bahan.filter(u => u.id_bahan === b.id).map(u => 
+          `<li>${u.ukuran} - Rp ${u.harga.toLocaleString('id-ID')}</li>`
+        ).join('')}
+      </ul>
+    </div>
+  `).join('');
+}
+
+function tambahBahan(){
+  const nama = document.getElementById('namaBahan').value;
+  const desk = document.getElementById('deskBahan').value;
+  const idBaru = Date.now();
+  data.jenis_bahan.push({id: idBaru, nama: nama, desk: desk});
+  localStorage.setItem('pratamaData', JSON.stringify(data));
+  alert('Bahan berhasil ditambah');
+  loadDashboard();
+}
+
+function tambahUkuran(){
+  const id_bahan = parseInt(document.getElementById('pilihBahan').value);
+  const ukuran = document.getElementById('ukuran').value;
+  const harga = parseInt(document.getElementById('harga').value);
+  data.ukuran_bahan.push({id_bahan, ukuran, harga});
+  localStorage.setItem('pratamaData', JSON.stringify(data));
+  alert('Ukuran berhasil ditambah');
+  loadDashboard();
+}
+</script>
+</body>
+</html>

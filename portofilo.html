@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratama Digital Printing & Advertising</title>
+    <style>
+        /* --- RESET & DASAR --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER & NAVIGASI --- */
+        header {
+            background: linear-gradient(135deg, #1a365d, #2b6cb0);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1629654297299-c8506221ca97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            position: relative;
+            text-align: center;
+            padding: 100px 20px;
+            color: white;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(26, 54, 93, 0.8); /* Overlay gelap agar teks terbaca */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ff6b35;
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn:hover {
+            background-color: #e85a24;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+        }
+
+        /* --- SECTION LAYANAN --- */
+        .layanan-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .judul {
+            text-align: center;
+            font-size: 2rem;
+            color: #1a365d;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .judul::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #ff6b35;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .grid-layanan {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* --- CARD LAYANAN --- */
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-body {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-body h3 {
+            color: #1a365d;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .card-body p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1a365d;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            .hero {
+                padding: 60px 20px;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <h1>PRATAMA DIGITAL PRINTING & ADVERTISING</h1>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <p>Melayani Percetakan Digital Berkualitas, Cepat, dan Terpercaya.</p>
+            <a href="pemesanan.html" class="btn">Pesan Sekarang</a>
+        </div>
+    </section>
+
+    <!-- LAYANAN SECTION -->
+    <section class="layanan-section">
+        <h2 class="judul">Layanan Kami</h2>
+
+        <div class="grid-layanan">
+            <!-- Card 1 -->
+            <div class="card">
+                <img src="gambar 2.jpg" alt="Spanduk">
+                <div class="card-body">
+                    <h3>Spanduk</h3>
+                    <p>Cetak spanduk berkualitas tinggi dengan warna tajam dan tahan lama.</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <img src="gambar 1.jpg" alt="Banner">
+                <div class="card-body">
+                    <h3>Banner</h3>
+                    <p>Banner indoor dan outdoor dengan berbagai ukuran dan bahan.</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <img src="gambar 3.jpg" alt="Stiker">
+                <div class="card-body">
+                    <h3>Stiker</h3>
+                    <p>Stiker vinyl dan cutting dengan presisi tinggi untuk berbagai kebutuhan.</p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card">
+                <img src="gambar4.jpg" alt="Kartu Nama">
+                <div class="card-body">
+                    <h3>Kartu Nama</h3>
+                    <p>Desain elegan dan profesional untuk menunjang bisnis Anda.</p>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card">
+                <img src="gambar5.jpg" alt="Brosur">
+                <div class="card-body">
+                    <h3>Brosur</h3>
+                    <p>Cetak brosur full color dengan kertas premium dan finishing rapi.</p>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card">
+                <img src="gambar6.jpg" alt="Neon Box">
+                <div class="card-body">
+                    <h3>Neon Box</h3>
+                    <p>Pembuatan papan reklame modern yang menyala dan menarik perhatian.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Pratama Digital Printing & Advertising. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratama Digital Printing & Advertising</title>
+    <style>
+        /* --- RESET & DASAR --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER & NAVIGASI --- */
+        header {
+            background: linear-gradient(135deg, #1a365d, #2b6cb0);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1629654297299-c8506221ca97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            position: relative;
+            text-align: center;
+            padding: 100px 20px;
+            color: white;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(26, 54, 93, 0.8); /* Overlay gelap agar teks terbaca */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ff6b35;
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn:hover {
+            background-color: #e85a24;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+        }
+
+        /* --- SECTION LAYANAN --- */
+        .layanan-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .judul {
+            text-align: center;
+            font-size: 2rem;
+            color: #1a365d;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .judul::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #ff6b35;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .grid-layanan {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* --- CARD LAYANAN --- */
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-body {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-body h3 {
+            color: #1a365d;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .card-body p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1a365d;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            .hero {
+                padding: 60px 20px;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <h1>PRATAMA DIGITAL PRINTING & ADVERTISING</h1>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <p>Melayani Percetakan Digital Berkualitas, Cepat, dan Terpercaya.</p>
+            <a href="pemesanan.html" class="btn">Pesan Sekarang</a>
+        </div>
+    </section>
+
+    <!-- LAYANAN SECTION -->
+    <section class="layanan-section">
+        <h2 class="judul">Layanan Kami</h2>
+
+        <div class="grid-layanan">
+            <!-- Card 1 -->
+            <div class="card">
+                <img src="gambar 2.jpg" alt="Spanduk">
+                <div class="card-body">
+                    <h3>Spanduk</h3>
+                    <p>Cetak spanduk berkualitas tinggi dengan warna tajam dan tahan lama.</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <img src="gambar 1.jpg" alt="Banner">
+                <div class="card-body">
+                    <h3>Banner</h3>
+                    <p>Banner indoor dan outdoor dengan berbagai ukuran dan bahan.</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <img src="gambar 3.jpg" alt="Stiker">
+                <div class="card-body">
+                    <h3>Stiker</h3>
+                    <p>Stiker vinyl dan cutting dengan presisi tinggi untuk berbagai kebutuhan.</p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card">
+                <img src="gambar4.jpg" alt="Kartu Nama">
+                <div class="card-body">
+                    <h3>Kartu Nama</h3>
+                    <p>Desain elegan dan profesional untuk menunjang bisnis Anda.</p>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card">
+                <img src="gambar5.jpg" alt="Brosur">
+                <div class="card-body">
+                    <h3>Brosur</h3>
+                    <p>Cetak brosur full color dengan kertas premium dan finishing rapi.</p>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card">
+                <img src="gambar6.jpg" alt="Neon Box">
+                <div class="card-body">
+                    <h3>Neon Box</h3>
+                    <p>Pembuatan papan reklame modern yang menyala dan menarik perhatian.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Pratama Digital Printing & Advertising. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

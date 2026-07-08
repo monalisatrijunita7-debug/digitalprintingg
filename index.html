@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pratama Digital Printing & Advertising</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Pratama Digital Printing & Advertising</h1>
+  <p>Cetak Cepat, Hasil Tajam</p>
+  <nav>
+    <a href="#layanan">Layanan</a>
+    <a href="#bahan">Bahan</a>
+    <a href="admin.html">Admin</a>
+    <a href="portofilo.html">portofolio</a>
+  </nav>
+</header>
+
+<section id="layanan">
+  <h2>Layanan Kami</h2>
+  <div class="grid" id="listLayanan"></div>
+</section>
+
+<section id="bahan">
+  <h2>Jenis & Ukuran Bahan</h2>
+  <div id="listBahan"></div>
+</section>
+
+<footer>
+  <p>© 2026 Pratama Digital Printing - Padang</p>
+</footer>
+
+<script>
+// Data Awal
+const dataAwal = {
+  admin: { username: "admin", password: "password" },
+  layanan: [
+    { nama: "Digital Printing", ket: "Banner, Brosur, Undangan, Kalender, Stiker" },
+    { nama: "Advertising", ket: "Neon Box, Huruf Timbul, Billboard, Branding" },
+    { nama: "Cutting Sticker", ket: "Logo, Nama Toko, Dekorasi Kaca" },
+    { nama: "Desain Grafis", ket: "Logo, Kemasan, Feed Instagram" }
+  ],
+  jenis_bahan: [
+    { id: 1, nama: "Banner Flexi 440gsm", desk: "Outdoor, tahan air & matahari" },
+    { id: 2, nama: "Vinyl Sticker Glossy/Doff", desk: "Untuk stiker label & branding" },
+    { id: 3, nama: "Neon Box Akrilik", desk: "Huruf timbul + lampu LED" },
+    { id: 4, nama: "Backdrop Rangka Besi", desk: "Untuk event, wedding, seminar" }
+  ],
+  ukuran_bahan: [
+    { id_bahan: 1, ukuran: "1 x 2 meter", harga: 45000 },
+    { id_bahan: 1, ukuran: "2 x 3 meter", harga: 130000 },
+    { id_bahan: 1, ukuran: "3 x 4 meter", harga: 250000 },
+    { id_bahan: 2, ukuran: "A3 29.7 x 42 cm", harga: 8000 },
+    { id_bahan: 2, ukuran: "A2 42 x 59.4 cm", harga: 15000 },
+    { id_bahan: 2, ukuran: "Per meter 1 x 1 m", harga: 65000 }
+  ]
+};
+if(!localStorage.getItem('pratamaData')){
+  localStorage.setItem('pratamaData', JSON.stringify(dataAwal));
+}
+
+const data = JSON.parse(localStorage.getItem('pratamaData'));
+
+// Tampilkan Layanan
+document.getElementById('listLayanan').innerHTML = data.layanan.map(l => `
+  <div class="card">
+    <h3>${l.nama}</h3>
+    <p>${l.ket}</p>
+  </div>
+`).join('');
+
+// Tampilkan Bahan
+document.getElementById('listBahan').innerHTML = data.jenis_bahan.map(b => `
+  <div class="bahan-box">
+    <h3>${b.nama}</h3>
+    <p>${b.desk}</p>
+    <table>
+      <tr><th>Ukuran</th><th>Harga</th></tr>
+      ${data.ukuran_bahan.filter(u => u.id_bahan === b.id).map(u => `
+        <tr><td>${u.ukuran}</td><td>Rp ${u.harga.toLocaleString('id-ID')}</td></tr>
+      `).join('')}
+    </table>
+  </div>
+`).join('');
+</script>
+</body>
+</link>
+</html>
